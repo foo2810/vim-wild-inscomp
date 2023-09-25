@@ -101,7 +101,9 @@ function! g:WIC_exit() abort
     endif
     if b:WIC_flg == 1
         " recover status line
-        execute "set statusline=" . escape(b:WIC_save_status_line, ' ')
+        if exists("b:WIC_save_status_line")
+            execute "set statusline=" . escape(b:WIC_save_status_line, ' ')
+        endif
 
         let b:WIC_flg = 0
         let b:data = []
