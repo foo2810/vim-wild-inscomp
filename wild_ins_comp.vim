@@ -46,8 +46,19 @@ function! g:WIC_ins_comp(direction) abort
         endif
 
         let b:WIC_flg = 1
+
+        " If no candidate
+        if len(b:WIC_word_list) == 0
+            return
+        endif
+
         call g:WIC_init()
         call g:WIC_draw()
+        return
+    endif
+
+    " If no candidate
+    if len(b:WIC_word_list) == 0
         return
     endif
 
